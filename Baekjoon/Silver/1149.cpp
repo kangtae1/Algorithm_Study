@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #define RED 0
 #define GREEN 1
@@ -27,5 +28,5 @@ int main() {
         dp[i][BLUE] = min(dp[i - 1][RED], dp[i - 1][GREEN]) + cost[i][BLUE];
     }
 
-    cout << min(min(dp[n][RED], dp[n][GREEN]), dp[n][BLUE]);
+    cout << *min_element(dp[n], dp[n] + 3) << endl;
 }
